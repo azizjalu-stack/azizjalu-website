@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Qopheessaa | Aziz Jalu</title>
+
+    <meta
+        name="description"
+        content="Aziz Jalu keessatti maxxansa haaraa qopheessuu fi kuusuu."
+    >
+
+    <link rel="stylesheet" href="design.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container header-inner">
+
+            <a href="aziz.html" class="logo">
+                Aziz <span>Jalu</span>
+            </a>
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-label="Menu bani"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+
+            <nav class="main-nav" id="mainNav">
+                <a href="aziz.html">Mana</a>
+                <a href="articles.html">Maxxansa</a>
+                <a href="aziz.html#barnoota">Barnoota</a>
+                <a href="aziz.html#waaee">Waa'ee Keenya</a>
+            </nav>
+
+            <button
+                class="theme-button"
+                id="themeButton"
+                type="button"
+                aria-label="Bifa website jijjiiri"
+            >
+                ◐
+            </button>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+            <div class="container hero-content">
+
+                <p class="hero-label">AZIZ JALU</p>
+
+                <h1>
+                    Maxxansa
+                    <span>Qopheessi</span>
+                </h1>
+
+                <p class="hero-text">
+                    Mata-duree, ramaddii fi barreeffama kee
+                    as irraa qopheessi.
+                </p>
+
+            </div>
+        </section>
+
+
+        <section class="contact-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-label">
+                        EDITOR
+                    </p>
+
+                    <h2>
+                        Barreeffama Haaraa
+                    </h2>
+
+                    <p>
+                        Odeeffannoo kee sirnaan guuti,
+                        achiis kuusi.
+                    </p>
+                </div>
+
+
+                <form id="articleForm" class="contact-card">
+
+                    <div class="form-group">
+
+                        <label for="articleTitle">
+                            Mata-duree
+                        </label>
+
+                        <input
+                            type="text"
+                            id="articleTitle"
+                            name="title"
+                            placeholder="Mata-duree barreessi..."
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="articleCategory">
+                            Ramaddii
+                        </label>
+
+                        <select
+                            id="articleCategory"
+                            name="category"
+                            required
+                        >
+                            <option value="">
+                                Ramaddii filadhu
+                            </option>
+
+                            <option value="Barnoota">
+                                Barnoota
+                            </option>
+
+                            <option value="Herrega">
+                                Herrega
+                            </option>
+
+                            <option value="Saayinsii">
+                                Saayinsii
+                            </option>
+
+                            <option value="Hawaasummaa">
+                                Hawaasummaa
+                            </option>
+
+                            <option value="Afaan">
+                                Afaan
+                            </option>
+
+                            <option value="Teknolojii">
+                                Teknolojii
+                            </option>
+
+                            <option value="Beekumsa">
+                                Beekumsa
+                            </option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="articleDescription">
+                            Ibsa Gabaabaa
+                        </label>
+
+                        <textarea
+                            id="articleDescription"
+                            name="description"
+                            rows="4"
+                            placeholder="Ibsa gabaabaa barreessi..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="articleContent">
+                            Qabiyyee Guutuu
+                        </label>
+
+                        <textarea
+                            id="articleContent"
+                            name="content"
+                            rows="12"
+                            placeholder="Barreeffama kee guutuu asitti barreessi..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="hero-buttons">
+
+                        <button
+                            type="button"
+                            id="previewButton"
+                            class="button secondary-button"
+                        >
+                            Dursee Ilaali
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="button primary-button"
+                        >
+                            Maxxansi
+                        </button>
+
+                    </div>
+
+                </form>
+
+
+                <div
+                    id="previewArea"
+                    class="contact-card"
+                    hidden
+                >
+
+                    <div class="section-heading">
+                        <p class="section-label">
+                            PREVIEW
+                        </p>
+
+                        <h2 id="previewTitle">
+                            -
+                        </h2>
+                    </div>
+
+                    <p>
+                        <strong>Ramaddii:</strong>
+                        <span id="previewCategory">-</span>
+                    </p>
+
+                    <p>
+                        <strong>Ibsa:</strong>
+                        <span id="previewDescription">-</span>
+                    </p>
+
+                    <p>
+                        <strong>Qabiyyee:</strong>
+                    </p>
+
+                    <div id="previewContent"></div>
+
+                </div>
+
+
+                <div
+                    id="saveMessage"
+                    class="contact-card"
+                    hidden
+                >
+                    <p>
+                        ✅ Maxxansi kee kuufameera.
+                    </p>
+
+                    <a
+                        href="articles.html"
+                        class="button primary-button"
+                    >
+                        Maxxansa Ilaali
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div class="container footer-content">
+
+            <div>
+
+                <a
+                    href="aziz.html"
+                    class="logo footer-logo"
+                >
+                    Aziz <span>Jalu</span>
+                </a>
+
+                <p>
+                    Beekumsa, barnoota fi odeeffannoo.
+                </p>
+
+            </div>
+
+            <div class="footer-links">
+
+                <a href="aziz.html">
+                    Mana
+                </a>
+
+                <a href="articles.html">
+                    Maxxansa
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+                © <span id="currentYear"></span>
+                Aziz Jalu. Mirgi hundi eegamaadha.
+            </p>
+
+        </div>
+
+    </footer><script>
+"use strict";
+
+const articleForm =
+    document.getElementById("articleForm");
+
+const previewButton =
+    document.getElementById("previewButton");
+
+const previewArea =
+    document.getElementById("previewArea");
+
+const previewTitle =
+    document.getElementById("previewTitle");
+
+const previewCategory =
+    document.getElementById("previewCategory");
+
+const previewDescription =
+    document.getElementById("previewDescription");
+
+const previewContent =
+    document.getElementById("previewContent");
+
+const saveMessage =
+    document.getElementById("saveMessage");
+
+
+/* ---------- PREVIEW ---------- */
+
+if (previewButton) {
+    previewButton.addEventListener("click", () => {
+
+        const title =
+            document.getElementById("articleTitle").value.trim();
+
+        const category =
+            document.getElementById("articleCategory").value;
+
+        const description =
+            document.getElementById("articleDescription").value.trim();
+
+        const content =
+            document.getElementById("articleContent").value.trim();
+
+        if (!title || !category || !description || !content) {
+            alert("Mee odeeffannoo hunda guuti.");
+            return;
+        }
+
+        previewTitle.textContent = title;
+        previewCategory.textContent = category;
+        previewDescription.textContent = description;
+        previewContent.textContent = content;
+
+        previewArea.hidden = false;
+
+        previewArea.scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+}
+
+
+/* ---------- SAVE ARTICLE ---------- */
+
+if (articleForm) {
+    articleForm.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+        const title =
+            document.getElementById("articleTitle").value.trim();
+
+        const category =
+            document.getElementById("articleCategory").value;
+
+        const description =
+            document.getElementById("articleDescription").value.trim();
+
+        const content =
+            document.getElementById("articleContent").value.trim();
+
+        if (!title || !category || !description || !content) {
+            alert("Mee odeeffannoo hunda guuti.");
+            return;
+        }
+
+        const oldArticles =
+            JSON.parse(
+                localStorage.getItem("azizJaluArticles") || "[]"
+            );
+
+        const newArticle = {
+            id: Date.now(),
+            title: title,
+            category: category,
+            description: description,
+            content: content,
+            date: new Date().toISOString()
+        };
+
+        oldArticles.unshift(newArticle);
+
+        localStorage.setItem(
+            "azizJaluArticles",
+            JSON.stringify(oldArticles)
+        );
+
+        if (saveMessage) {
+            saveMessage.hidden = false;
+        }
+
+        articleForm.reset();
+
+        if (previewArea) {
+            previewArea.hidden = true;
+        }
+
+        if (saveMessage) {
+            saveMessage.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    });
+}
+</script>
+
+<script src="main.js" defer></script>
+
+
+    <script src="main.js" defer></script>
+
+</body>
+</html>

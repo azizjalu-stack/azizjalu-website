@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aziz Jalu | Barnoota, Odeeffannoo fi Maxxansa</title>
+
+    <meta
+        name="description"
+        content="Aziz Jalu - Barnoota, odeeffannoo, beekumsa, aadaa fi maxxansa Afaan Oromoo, English, Amharic fi Arabic."
+    >
+
+    <meta name="theme-color" content="#111111">
+
+    <link rel="stylesheet" href="design.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container header-inner">
+
+            <a href="aziz.html" class="logo">
+                Aziz <span>Jalu</span>
+            </a>
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-label="Menu bani"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+
+            <nav class="main-nav" id="mainNav">
+                <a href="aziz.html">Mana</a>
+                <a href="#barnoota">Barnoota</a>
+                <a href="#maxxansa">Maxxansa</a>
+                <a href="#waaee">Waa'ee Keenya</a>
+                <a href="#qunnamtii">Nu Qunnami</a>
+                <a href="editor.html">Qopheessi</a>
+            </nav>
+
+            <button
+                class="theme-button"
+                id="themeButton"
+                type="button"
+                aria-label="Bifa website jijjiiri"
+            >
+                ◐
+            </button>
+
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <main>
+
+        <section class="hero">
+            <div class="container hero-content">
+
+                <p class="hero-label">BAGA NAGAAN GARA AZIZ JALU DHUFTAN</p>
+
+                <h1>
+                    Beekumsa Baradhu.
+                    <span>Odeeffannoo Argadhu.</span>
+                </h1>
+
+                <p class="hero-text">
+                    Aziz Jalu keessatti barnoota, beekumsa, odeeffannoo,
+                    aadaa fi maxxansa gara garaa afaanota adda addaatiin
+                    argattu.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#maxxansa" class="button primary-button">
+                        Maxxansa Ilaali
+                    </a>
+
+                    <a href="#barnoota" class="button secondary-button">
+                        Barnoota Jalqabi
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SEARCH -->
+        <section class="search-section">
+            <div class="container">
+
+                <label for="searchInput" class="search-label">
+                    Maal barbaadda?
+                </label>
+
+                <div class="search-box">
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Barnoota ykn maxxansa barbaadi..."
+                        autocomplete="off"
+                    >
+
+                    <button id="searchButton" type="button">
+                        Barbaadi
+                    </button>
+                </div>
+
+                <p id="searchMessage" class="search-message"></p>
+
+            </div>
+        </section>
+
+
+        <!-- CATEGORIES -->
+        <section class="categories" id="barnoota">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-label">BARNOOTA</p>
+                    <h2>Kutaa Barnootaa</h2>
+                    <p>
+                        Mata-dureewwan adda addaa keessaa
+                        waan si barbaachisu filadhu.
+                    </p>
+                </div>
+
+                <div class="category-grid">
+
+                    <a href="#maxxansa" class="category-card">
+                        <span class="category-icon">📐</span>
+                        <h3>Herrega</h3>
+                        <p>Mathematics</p>
+                    </a>
+
+                    <a href="#maxxansa" class="category-card">
+                        <span class="category-icon">🔬</span>
+                        <h3>Saayinsii</h3>
+                        <p>Science</p>
+                    </a>
+
+                    <a href="#maxxansa" class="category-card">
+                        <span class="category-icon">🌍</span>
+                        <h3>Hawaasummaa</h3>
+                        <p>Social Studies</p>
+                    </a>
+
+                    <a href="#maxxansa" class="category-card">
+                        <span class="category-icon">📚</span>
+                        <h3>Afaan</h3>
+                        <p>Languages</p>
+                    </a>
+
+                    <a href="#maxxansa" class="category-card">
+                        <span class="category-icon">💡</span>
+                        <h3>Beekumsa</h3>
+                        <p>General Knowledge</p>
+                    </a>
+
+                    <a href="#maxxansa" class="category-card">
+                        <span class="category-icon">💻</span>
+                        <h3>Teknolojii</h3>
+                        <p>Technology</p>
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- LATEST ARTICLES -->
+        <section class="articles-section" id="maxxansa">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-label">MAXXANSA HAARAA</p>
+                    <h2>Barreeffamoota Haaraa</h2>
+                    <p>
+                        Barreeffamoota fi odeeffannoo haaraa
+                        asitti argachuu dandeessa.
+                    </p>
+                </div>
+
+                <div id="featuredArticles" class="articles-grid">
+
+                    <article class="article-card">
+                        <div class="article-image">
+                            <span>AZIZ JALU</span>
+                        </div>
+
+                        <div class="article-content">
+                            <span class="article-category">
+                                Barnoota
+                            </span>
+
+                            <h3>
+                                Barnoonni Maaliif Murteessaa Dha?
+                            </h3>
+
+                            <p>
+                                Barnoota, beekumsa fi guddina
+                                jireenyaa irratti hubannoo bu'uuraa.
+                            </p>
+
+                            <a href="articles.html" class="read-more">
+                                Dubbisi →
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="center-button">
+                    <a href="articles.html" class="button primary-button">
+                        Maxxansa Hunda Ilaali
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ABOUT -->
+        <section class="about-section" id="waaee">
+            <div class="container about-content">
+
+                <div class="section-heading">
+                    <p class="section-label">WAAN NU HOJJENNU</p>
+                    <h2>Aziz Jalu Maali?</h2>
+                </div>
+
+                <p>
+                    Aziz Jalu marsariitii odeeffannoo fi barnootaa ti.
+                    Kaayyoon isaa beekumsa fi odeeffannoo nama fayyadu
+                    karaa salphaa fi ifa ta'een dhiyeessuudha.
+                </p>
+
+                <p>
+                    Qabiyyeen keenya Afaan Oromoo, English, Amharic
+                    fi Arabic keessatti qophaa'uu danda'a.
+                </p>
+
+                <div class="language-list">
+                    <span>Afaan Oromoo</span>
+                    <span>English</span>
+                    <span>አማርኛ</span>
+                    <span>العربية</span>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- CONTACT -->
+        <section class="contact-section" id="qunnamtii">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-label">NU QUNNAMI</p>
+                    <h2>Nu Waliin Qoodami</h2>
+                    <p>
+                        Yaada, gaaffii ykn yaada fooyya'iinsaa yoo qabaatte
+                        nuuf ergi.
+                    </p>
+                </div>
+
+                <div class="contact-card">
+                    <p>
+                        Email:
+                        <strong>info@azizjalu.com</strong>
+                    </p>
+
+                    <a href="articles.html" class="button primary-button">
+                        Maxxansa Ilaali
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+
+            <div>
+                <a href="aziz.html" class="logo footer-logo">
+                    Aziz <span>Jalu</span>
+                </a>
+
+                <p>
+                    Beekumsa, barnoota fi odeeffannoo.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <a href="aziz.html">Mana</a>
+                <a href="articles.html">Maxxansa</a>
+                <a href="editor.html">Qopheessi</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                © <span id="currentYear"></span> Aziz Jalu. Mirgi hundi eegamaadha.
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="main.js" defer></script>
+
+</body>
+</html>

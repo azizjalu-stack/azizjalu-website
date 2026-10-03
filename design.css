@@ -1,0 +1,896 @@
+/* ========================================
+   AZIZ JALU
+   RESPONSIVE DESIGN
+   Mobile • Tablet • Laptop • Desktop
+   ======================================== */
+
+
+/* ---------- RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #ffffff;
+    color: #171717;
+
+    line-height: 1.6;
+
+    min-width: 320px;
+
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* ---------- CONTAINER ---------- */
+
+.container {
+    width: min(
+        100% - 32px,
+        1180px
+    );
+
+    margin-inline: auto;
+}
+
+
+/* ---------- HEADER ---------- */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #eeeeee;
+
+    box-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.header-inner {
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+
+    margin-right: auto;
+}
+
+.logo span {
+    color: #e00000;
+}
+
+
+/* ---------- NAVIGATION ---------- */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.main-nav a {
+    font-size: 15px;
+    font-weight: 600;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.main-nav a:hover {
+    color: #e00000;
+}
+
+.menu-button,
+.theme-button {
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-button {
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    font-size: 25px;
+}
+
+.theme-button {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+
+    background: #f2f2f2;
+
+    font-size: 20px;
+}
+
+
+/* ---------- HERO ---------- */
+
+.hero {
+    padding:
+        clamp(70px, 10vw, 130px)
+        0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111111,
+            #252525
+        );
+
+    color: #ffffff;
+}
+
+.hero-content {
+    max-width: 900px;
+
+    text-align: center;
+
+    margin-inline: auto;
+}
+
+.hero-label {
+    color: #ff3030;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size:
+        clamp(
+            36px,
+            7vw,
+            72px
+        );
+
+    line-height: 1.08;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #ff2020;
+}
+
+.hero-text {
+    max-width: 700px;
+
+    margin-inline: auto;
+
+    color: #dddddd;
+
+    font-size:
+        clamp(
+            16px,
+            2vw,
+            19px
+        );
+}
+
+
+/* ---------- BUTTONS ---------- */
+
+.button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding:
+        11px 20px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    border: 1px solid transparent;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.primary-button {
+    background: #e00000;
+    color: #ffffff;
+}
+
+.primary-button:hover {
+    background: #b80000;
+}
+
+.secondary-button {
+    background: #ffffff;
+    color: #171717;
+
+    border-color: #dddddd;
+}
+
+
+/* ---------- SEARCH ---------- */
+
+.search-section {
+    padding: 45px 0;
+
+    background: #f7f7f7;
+}
+
+.search-label {
+    display: block;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+.search-box {
+    display: flex;
+
+    width: 100%;
+
+    max-width: 850px;
+
+    margin-inline: auto;
+}
+
+.search-box input {
+    flex: 1;
+
+    min-width: 0;
+
+    min-height: 50px;
+
+    padding:
+        12px 15px;
+
+    border: 1px solid #d5d5d5;
+
+    border-right: 0;
+
+    border-radius:
+        10px 0 0 10px;
+
+    outline: none;
+
+    background: #ffffff;
+}
+
+.search-box input:focus {
+    border-color: #e00000;
+}
+
+.search-box button {
+    min-width: 110px;
+
+    border: 0;
+
+    border-radius:
+        0 10px 10px 0;
+
+    background: #e00000;
+
+    color: #ffffff;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.search-message {
+    max-width: 850px;
+
+    margin:
+        10px auto 0;
+
+    font-size: 14px;
+
+    color: #666666;
+}
+
+
+/* ---------- SECTIONS ---------- */
+
+.articles-section,
+.about-section,
+.contact-section {
+    padding:
+        clamp(55px, 8vw, 100px)
+        0;
+}
+
+.section-heading {
+    max-width: 760px;
+
+    margin:
+        0 auto 45px;
+
+    text-align: center;
+}
+
+.section-label {
+    color: #e00000;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+.section-heading h2 {
+    font-size:
+        clamp(
+            28px,
+            5vw,
+            46px
+        );
+
+    line-height: 1.15;
+
+    margin-bottom: 12px;
+}
+
+.section-heading p {
+    color: #666666;
+
+    font-size: 17px;
+}
+
+
+/* ---------- ARTICLES GRID ---------- */
+
+.articles-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 24px;
+}
+
+.article-card {
+    background: #ffffff;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 14px 35px
+        rgba(0, 0, 0, 0.10);
+}
+
+.article-content {
+    padding: 25px;
+}
+
+.article-category {
+    display: inline-block;
+
+    color: #e00000;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    margin-bottom: 10px;
+}
+
+.article-card h3 {
+    font-size:
+        clamp(
+            20px,
+            3vw,
+            25px
+        );
+
+    line-height: 1.3;
+
+    margin-bottom: 12px;
+}
+
+.article-card p {
+    color: #666666;
+
+    font-size: 16px;
+
+    margin-bottom: 12px;
+}
+
+.article-card p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ---------- ABOUT ---------- */
+
+.about-section {
+    background: #f7f7f7;
+}
+
+.about-content {
+    max-width: 850px;
+
+    margin-inline: auto;
+
+    text-align: center;
+}
+
+
+/* ---------- CONTACT ---------- */
+
+.contact-section {
+    text-align: center;
+
+    background: #ffffff;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+.site-footer {
+    background: #111111;
+
+    color: #ffffff;
+
+    padding-top: 55px;
+}
+
+.footer-content {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+.footer-logo {
+    display: inline-block;
+
+    margin-bottom: 12px;
+}
+
+.site-footer p {
+    color: #bbbbbb;
+}
+
+.footer-links {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #dddddd;
+
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #ff3030;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+
+    padding:
+        20px 0;
+
+    text-align: center;
+
+    border-top:
+        1px solid #2c2c2c;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+}
+
+
+/* ========================================
+   DARK MODE
+   ======================================== */
+
+body.dark-mode {
+    background: #101010;
+
+    color: #f5f5f5;
+}
+
+body.dark-mode .site-header {
+    background: #151515;
+
+    border-color: #292929;
+}
+
+body.dark-mode .theme-button {
+    background: #292929;
+
+    color: #ffffff;
+}
+
+body.dark-mode .search-section,
+body.dark-mode .about-section {
+    background: #151515;
+}
+
+body.dark-mode .search-box input {
+    background: #202020;
+
+    color: #ffffff;
+
+    border-color: #3a3a3a;
+}
+
+body.dark-mode .article-card {
+    background: #181818;
+
+    border-color: #2c2c2c;
+}
+
+body.dark-mode .article-card p,
+body.dark-mode .section-heading p,
+body.dark-mode .search-message {
+    color: #bbbbbb;
+}
+
+body.dark-mode .contact-section {
+    background: #101010;
+}
+
+body.dark-mode .secondary-button {
+    background: #202020;
+
+    color: #ffffff;
+
+    border-color: #3a3a3a;
+}
+
+
+/* ========================================
+   TABLET
+   ======================================== */
+
+@media (max-width: 900px) {
+
+    .container {
+        width:
+            min(
+                100% - 28px,
+                760px
+            );
+    }
+
+    .main-nav {
+        gap: 14px;
+    }
+
+    .main-nav a {
+        font-size: 14px;
+    }
+
+    .articles-grid {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+}
+
+
+/* ========================================
+   MOBILE NAVIGATION
+   ======================================== */
+
+@media (max-width: 720px) {
+
+    .header-inner {
+        min-height: 64px;
+    }
+
+    .menu-button {
+        display: flex;
+    }
+
+    .main-nav {
+        position: absolute;
+
+        top: 64px;
+        left: 14px;
+        right: 14px;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 10px;
+
+        background: #ffffff;
+
+        border:
+            1px solid #e5e5e5;
+
+        border-radius: 14px;
+
+        box-shadow:
+            0 12px 30px
+            rgba(0, 0, 0, 0.12);
+    }
+
+    .main-nav.open {
+        display: flex;
+    }
+
+    .main-nav a {
+        padding: 13px 14px;
+
+        border-radius: 9px;
+    }
+
+    .main-nav a:hover {
+        background: #f5f5f5;
+    }
+
+    body.dark-mode .main-nav {
+        background: #181818;
+
+        border-color: #2c2c2c;
+    }
+
+    body.dark-mode .main-nav a:hover {
+        background: #242424;
+    }
+
+    .hero {
+        padding:
+            65px 0 75px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .article-content {
+        padding: 22px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+}
+
+
+/* ========================================
+   SMALL PHONES
+   ======================================== */
+
+@media (max-width: 480px) {
+
+    .container {
+        width:
+            calc(100% - 24px);
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .theme-button,
+    .menu-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero {
+        padding:
+            55px 0 65px;
+    }
+
+    .hero-label {
+        font-size: 12px;
+
+        letter-spacing: 2px;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+
+        line-height: 1.12;
+    }
+
+    .hero-text {
+        font-size: 15px;
+    }
+
+    .search-section {
+        padding: 30px 0;
+    }
+
+    .search-box {
+        display: flex;
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .search-box input {
+        border-right: 1px solid #d5d5d5;
+
+        border-radius: 10px;
+    }
+
+    .search-box button {
+        min-height: 48px;
+
+        border-radius: 10px;
+    }
+
+    .articles-section,
+    .about-section,
+    .contact-section {
+        padding:
+            50px 0;
+    }
+
+    .section-heading {
+        margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .section-heading p {
+        font-size: 15px;
+    }
+
+    .article-card h3 {
+        font-size: 21px;
+    }
+
+    .article-card p {
+        font-size: 15px;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+}
+
+
+/* ========================================
+   VERY SMALL PHONES
+   ======================================== */
+
+@media (max-width: 360px) {
+
+    .container {
+        width:
+            calc(100% - 18px);
+    }
+
+    .header-inner {
+        gap: 8px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .hero h1 {
+        font-size: 31px;
+    }
+
+    .article-content {
+        padding: 18px;
+    }
+
+}
