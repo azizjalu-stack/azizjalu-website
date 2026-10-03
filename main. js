@@ -1,277 +1,52 @@
-"use strict";
+document.addEventListener("DOMContentLoaded", function () {
 
-/* ========================================
-   AZIZ JALU - MAIN JAVASCRIPT
-   ======================================== */
+    // Mobile Menu
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector(".nav-menu");
 
-
-/* ---------- MOBILE MENU ---------- */
-
-const menuButton = document.getElementById("menuButton");
-const mainNav = document.getElementById("mainNav");
-
-if (menuButton && mainNav) {
-    menuButton.addEventListener("click", () => {
-        const opened = mainNav.classList.toggle("open");
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            String(opened)
-        );
-    });
-
-    mainNav.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-            mainNav.classList.remove("open");
-            menuButton.setAttribute("aria-expanded", "false");
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener("click", function () {
+            navMenu.classList.toggle("active");
         });
-    });
-}
-
-
-/* ---------- DARK MODE ---------- */
-
-const themeButton = document.getElementById("themeButton");
-
-const savedTheme = localStorage.getItem("azizJaluTheme");
-
-if (savedTheme === "dark") {
-    document.body.classList.add("dark-mode");
-}
-
-if (themeButton) {
-    themeButton.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-
-        const darkMode =
-            document.body.classList.contains("dark-mode");
-
-        localStorage.setItem(
-            "azizJaluTheme",
-            darkMode ? "dark" : "light"
-        );
-    });
-}
-
-
-/* ---------- CURRENT YEAR ---------- */
-
-const currentYear = document.getElementById("currentYear");
-
-if (currentYear) {
-    currentYear.textContent =
-        String(new Date().getFullYear());
-}
-
-
-/* ---------- HOME SEARCH ---------- */
-
-const searchInput =
-    document.getElementById("searchInput");
-
-const searchButton =
-    document.getElementById("searchButton");
-
-const searchMessage =
-    document.getElementById("searchMessage");
-
-const featuredArticles =
-    document.getElementById("featuredArticles");
-
-function searchHomeArticles() {
-    if (!searchInput || !featuredArticles) {
-        return;
     }
 
-    const keyword =
-        searchInput.value.trim().toLowerCase();
+    // Dark Mode
+    const darkToggle = document.querySelector(".dark-toggle");
 
-    const cards =
-        featuredArticles.querySelectorAll(".article-card");
-
-    let found = 0;
-
-    cards.forEach((card) => {
-        const text =
-            card.textContent.toLowerCase();
-
-        const visible =
-            keyword === "" ||
-            text.includes(keyword);
-
-        card.style.display =
-            visible ? "" : "none";
-
-        if (visible) {
-            found++;
-        }
-    });
-
-    if (searchMessage) {
-        if (keyword === "") {
-            searchMessage.textContent = "";
-        } else if (found > 0) {
-            searchMessage.textContent =
-                found + " maxxansa argame.";
-        } else {
-            searchMessage.textContent =
-                "Maxxansi ati barbaadde hin argamne.";
-        }
-    }
-}
-
-if (searchButton) {
-    searchButton.addEventListener(
-        "click",
-        searchHomeArticles
-    );
-}
-
-if (searchInput) {
-    searchInput.addEventListener(
-        "keydown",
-        (event) => {
-            if (event.key === "Enter") {
-                searchHomeArticles();
-            }
-        }
-    );
-
-    searchInput.addEventListener(
-        "input",
-        () => {
-            if (searchInput.value.trim() === "") {
-                searchHomeArticles();
-            }
-        }
-    );
-}
-
-
-/* ---------- ARTICLE PAGE SEARCH ---------- */
-
-const articleSearch =
-    document.getElementById("articleSearch");
-
-const articleSearchButton =
-    document.getElementById("articleSearchButton");
-
-const articleSearchMessage =
-    document.getElementById("articleSearchMessage");
-
-const articlesList =
-    document.getElementById("articlesList");
-
-function searchArticlePage() {
-    if (!articleSearch || !articlesList) {
-        return;
+    if (darkToggle) {
+        darkToggle.addEventListener("click", function () {
+            document.body.classList.toggle("dark");
+        });
     }
 
-    const keyword =
-        articleSearch.value.trim().toLowerCase();
+    // Current Year
+    const year = document.getElementById("year");
 
-    const cards =
-        articlesList.querySelectorAll(".article-card");
-
-    let found = 0;
-
-    cards.forEach((card) => {
-        const text =
-            card.textContent.toLowerCase();
-
-        const visible =
-            keyword === "" ||
-            text.includes(keyword);
-
-        card.style.display =
-            visible ? "" : "none";
-
-        if (visible) {
-            found++;
-        }
-    });
-
-    if (articleSearchMessage) {
-        if (keyword === "") {
-            articleSearchMessage.textContent = "";
-        } else if (found > 0) {
-            articleSearchMessage.textContent =
-                found + " maxxansa argame.";
-        } else {
-            articleSearchMessage.textContent =
-                "Maxxansi ati barbaadde hin argamne.";
-        }
-    }
-}
-
-if (articleSearchButton) {
-    articleSearchButton.addEventListener(
-        "click",
-        searchArticlePage
-    );
-}
-
-if (articleSearch) {
-    articleSearch.addEventListener(
-        "keydown",
-        (event) => {
-            if (event.key === "Enter") {
-                searchArticlePage();
-            }
-        }
-    );
-
-    articleSearch.addEventListener(
-        "input",
-        () => {
-            if (articleSearch.value.trim() === "") {
-                searchArticlePage();
-            }
-        }
-    );
-}
-
-
-/* ---------- CLOSE MENU OUTSIDE ---------- */
-
-document.addEventListener("click", (event) => {
-    if (!menuButton || !mainNav) {
-        return;
+    if (year) {
+        year.textContent = new Date().getFullYear();
     }
 
-    const target = event.target;
+    // Search
+    const searchInput = document.getElementById("searchInput");
 
-    if (!(target instanceof Node)) {
-        return;
+    if (searchInput) {
+        searchInput.addEventListener("input", function () {
+
+            const searchText = this.value.toLowerCase();
+            const articles = document.querySelectorAll(".article-card");
+
+            articles.forEach(function (article) {
+
+                const text = article.textContent.toLowerCase();
+
+                if (text.includes(searchText)) {
+                    article.style.display = "";
+                } else {
+                    article.style.display = "none";
+                }
+
+            });
+        });
     }
 
-    if (
-        !mainNav.contains(target) &&
-        !menuButton.contains(target)
-    ) {
-        mainNav.classList.remove("open");
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-    }
-});
-
-
-/* ---------- ESC KEY ---------- */
-
-document.addEventListener("keydown", (event) => {
-    if (event.key !== "Escape") {
-        return;
-    }
-
-    if (mainNav && menuButton) {
-        mainNav.classList.remove("open");
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-    }
 });
