@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="om">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Maxxansa | Aziz Jalu</title>
+
+    <meta
+        name="description"
+        content="Maxxansa, barnoota, beekumsa fi odeeffannoo Aziz Jalu."
+    >
+
+    <link rel="stylesheet" href="design.css">
+
+    <style>
+        .article-card {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .article-card:active {
+            transform: scale(0.98);
+        }
+
+        #loadingMessage,
+        #articleSearchMessage {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+    <div class="container header-inner">
+
+        <a href="aziz.html" class="logo">
+            Aziz <span>Jalu</span>
+        </a>
+
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Menu bani"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+
+        <nav
+            class="main-nav"
+            id="mainNav"
+        >
+
+            <a href="aziz.html">
+                Mana
+            </a>
+
+            <a href="articles.html">
+                Maxxansa
+            </a>
+
+            <a href="aziz.html#barnoota">
+                Barnoota
+            </a>
+
+            <a href="aziz.html#waaee">
+                Waa'ee Keenya
+            </a>
+
+            <a href="aziz.html#qunnamtii">
+                Nu Qunnami
+            </a>
+
+            <a href="editor.html">
+                Qopheessi
+            </a>
+
+        </nav>
+
+
+        <button
+            class="theme-button"
+            id="themeButton"
+            type="button"
+            aria-label="Bifa website jijjiiri"
+        >
+            ◐
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+<section class="hero">
+
+    <div class="container hero-content">
+
+        <p class="hero-label">
+            AZIZ JALU
+        </p>
+
+        <h1>
+            Maxxansa <span>fi Beekumsa</span>
+        </h1>
+
+        <p class="hero-text">
+            Barreeffamoota barnootaa, beekumsaa,
+            teknooloojii, afaanotaa fi mata-dureewwan
+            adda addaa asitti dubbisi.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<section class="search-section">
+
+    <div class="container">
+
+        <label
+            for="articleSearch"
+            class="search-label"
+        >
+            Maxxansa barbaadi
+        </label>
+
+
+        <div class="search-box">
+
+            <input
+                type="search"
+                id="articleSearch"
+                placeholder="Mata-duree barbaadi..."
+                autocomplete="off"
+            >
+
+
+            <button
+                id="articleSearchButton"
+                type="button"
+            >
+                Barbaadi
+            </button>
+
+        </div>
+
+
+        <p
+            id="articleSearchMessage"
+            class="search-message"
+        ></p>
+
+    </div>
+
+</section>
+
+
+
+<section class="articles-section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <p class="section-label">
+                MAXXANSA
+            </p>
+
+            <h2>
+                Barreeffamoota Hunda
+            </h2>
+
+            <p>
+                Qabiyyee haaraa fi barnootaa
+                bakka tokko irraa dubbisi.
+            </p>
+
+        </div>
+
+
+        <p id="loadingMessage">
+            Maxxansa fe'aa jira...
+        </p>
+
+
+        <div
+            id="articlesList"
+            class="articles-grid"
+        ></div>
+
+
+    </div>
+
+</section>
+
+
+
+<section class="contact-section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <p class="section-label">
+                AZIZ JALU
+            </p>
+
+            <h2>
+                Gara Fuula Guddaatti Deebi'i
+            </h2>
+
+            <p>
+                Maxxansa dabalataa argachuuf
+                fuula jalqabaa daawwadhu.
+            </p>
+
+        </div>
+
+
+        <a
+            href="aziz.html"
+            class="button primary-button"
+        >
+            ← Gara Manaatti Deebi'i
+        </a>
+
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<footer class="site-footer">
+
+
+    <div class="container footer-content">
+
+
+        <div>
+
+            <a
+                href="aziz.html"
+                class="logo footer-logo"
+            >
+                Aziz <span>Jalu</span>
+            </a>
+
+
+            <p>
+                Beekumsa, barnoota fi odeeffannoo.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="aziz.html">
+                Mana
+            </a>
+
+            <a href="articles.html">
+                Maxxansa
+            </a>
+
+            <a href="editor.html">
+                Qopheessi
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            ©
+            <span id="currentYear"></span>
+            Aziz Jalu.
+            Mirgi hundi eegamaadha.
+        </p>
+
+    </div>
+
+
+</footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+"use strict";
+
+
+
+/*
+ * SUPABASE
+ */
+
+const SUPABASE_URL =
+    "https://eencoolaxscedvnsezlm.supabase.co";
+
+
+const SUPABASE_KEY =
+    "sb_publishable_BgeLKnjMqJxVfRY-JWhxvg_OjNnUKl2";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+
+
+/*
+ * ELEMENTS
+ */
+
+const articlesList =
+    document.getElementById(
+        "articlesList"
+    );
+
+
+const loadingMessage =
+    document.getElementById(
+        "loadingMessage"
+    );
+
+
+const searchInput =
+    document.getElementById(
+        "articleSearch"
+    );
+
+
+const searchButton =
+    document.getElementById(
+        "articleSearchButton"
+    );
+
+
+const searchMessage =
+    document.getElementById(
+        "articleSearchMessage"
+    );
+
+
+const currentYear =
+    document.getElementById(
+        "currentYear"
+    );
+
+
+
+/*
+ * ARTICLES
+ */
+
+let allArticles = [];
+
+
+
+/*
+ * MAXXANSA SUPABASE IRRAA FE'UU
+ */
+
+async function loadArticles() {
+
+    try {
+
+        if (loadingMessage) {
+
+            loadingMessage.textContent =
+                "Maxxansa fe'aa jira...";
+
+        }
+
+
+        const result =
+            await supabaseClient
+                .from("articles")
+                .select(
+                    "id,title,category,description,content,created_at"
+                )
+                .order(
+                    "created_at",
+                    {
+                        ascending: false
+                    }
+                );
+
+
+        if (result.error) {
+
+            console.error(
+                "Supabase error:",
+                result.error
+            );
+
+
+            if (loadingMessage) {
+
+                loadingMessage.textContent =
+                    "Maxxansa fe'uu irratti rakkoon uumame.";
+
+            }
+
+            return;
+        }
+
+
+        allArticles =
+            Array.isArray(result.data)
+                ? result.data
+                : [];
+
+
+        if (loadingMessage) {
+
+            loadingMessage.textContent =
+                "";
+
+        }
+
+
+        displayArticles(
+            allArticles
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Unexpected error:",
+            error
+        );
+
+
+        if (loadingMessage) {
+
+            loadingMessage.textContent =
+                "Rakkoon uumame. Mee irra deebi'ii yaali.";
+
+        }
+
+    }
+
+}
+
+
+
+/*
+ * MAXXANSA AGARSIISUU
+ */
+
+/**
+ * @param {Array<{
+ * id: number|string,
+ * title?: string,
+ * category?: string,
+ * description?: string,
+ * content?: string,
+ * created_at?: string
+ * }>} articles
+ */
+
+function displayArticles(
+    articles
+) {
+
+
+    if (!articlesList) {
+        return;
+    }
+
+
+    articlesList.innerHTML =
+        "";
+
+
+    if (
+        !Array.isArray(articles) ||
+        articles.length === 0
+    ) {
+
+        articlesList.innerHTML =
+            "<p>Ammaaf maxxansi hin jiru.</p>";
+
+        return;
+    }
+
+
+
+    for (
+        let i = 0;
+        i < articles.length;
+        i++
+    ) {
+
+
+        const item =
+            articles[i];
+
+
+        const card =
+            document.createElement(
+                "article"
+            );
+
+
+        card.className =
+            "article-card";
+
+
+        /*
+         * ID article kaa'i
+         */
+
+        card.dataset.id =
+            String(item.id);
+
+
+
+        /*
+         * ARTICLE TUQI
+         */
+
+        card.addEventListener(
+            "click",
+            function () {
+
+
+                const selectedId =
+                    String(item.id);
+
+
+                /*
+                 * ID kaa'i
+                 */
+
+                sessionStorage.setItem(
+                    "selectedArticleId",
+                    selectedId
+                );
+
+
+                /*
+                 * Article page bani
+                 */
+
+                card.addEventListener(
+    "click",
+    function () {
+
+        window.location.href =
+            "article.html?id=" +
+            encodeURIComponent(String(item.id));
+
+    }
+);
+
+
+            }
+        );
+
+
+
+        /*
+         * CONTENT
+         */
+
+        const content =
+            document.createElement(
+                "div"
+            );
+
+
+        content.className =
+            "article-content";
+
+
+
+        /*
+         * CATEGORY
+         */
+
+        const category =
+            document.createElement(
+                "span"
+            );
+
+
+        category.className =
+            "article-category";
+
+
+        category.textContent =
+            item.category ||
+            "Waliigalaa";
+
+
+
+        /*
+         * TITLE
+         */
+
+        const title =
+            document.createElement(
+                "h3"
+            );
+
+
+        title.textContent =
+            item.title ||
+            "Mata-duree hin qabne";
+
+
+
+        /*
+         * DESCRIPTION
+         */
+
+        const description =
+            document.createElement(
+                "p"
+            );
+
+
+        description.textContent =
+            item.description ||
+            "";
+
+
+
+        /*
+         * CONTENT
+         */
+
+        content.appendChild(
+            category
+        );
+
+
+        content.appendChild(
+            title
+        );
+
+
+        content.appendChild(
+            description
+        );
+
+
+        card.appendChild(
+            content
+        );
+
+
+        articlesList.appendChild(
+            card
+        );
+
+    }
+
+}
+
+
+
+/*
+ * SEARCH
+ */
+
+function searchArticles() {
+
+
+    const keyword =
+        searchInput
+            ? searchInput.value
+                .trim()
+                .toLowerCase()
+            : "";
+
+
+    if (!keyword) {
+
+
+        displayArticles(
+            allArticles
+        );
+
+
+        if (searchMessage) {
+
+            searchMessage.textContent =
+                "";
+
+        }
+
+
+        return;
+
+    }
+
+
+
+    const filtered =
+        allArticles.filter(
+            function (item) {
+
+
+                const title =
+                    String(
+                        item.title || ""
+                    ).toLowerCase();
+
+
+                const category =
+                    String(
+                        item.category || ""
+                    ).toLowerCase();
+
+
+                const description =
+                    String(
+                        item.description || ""
+                    ).toLowerCase();
+
+
+                const content =
+                    String(
+                        item.content || ""
+                    ).toLowerCase();
+
+
+
+                return (
+                    title.includes(keyword) ||
+                    category.includes(keyword) ||
+                    description.includes(keyword) ||
+                    content.includes(keyword)
+                );
+
+            }
+        );
+
+
+
+    displayArticles(
+        filtered
+    );
+
+
+
+    if (searchMessage) {
+
+
+        if (
+            filtered.length === 0
+        ) {
+
+            searchMessage.textContent =
+                "Maxxansa kana hin argamne.";
+
+        } else {
+
+            searchMessage.textContent =
+                filtered.length +
+                " maxxansa argame.";
+
+        }
+
+    }
+
+}
+
+
+
+/*
+ * SEARCH BUTTON
+ */
+
+if (searchButton) {
+
+    searchButton.addEventListener(
+        "click",
+        searchArticles
+    );
+
+}
+
+
+
+/*
+ * SEARCH YEROO BARREESSAN
+ */
+
+if (searchInput) {
+
+    searchInput.addEventListener(
+        "input",
+        searchArticles
+    );
+
+}
+
+
+
+/*
+ * ENTER KEY
+ */
+
+if (searchInput) {
+
+    searchInput.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                searchArticles();
+
+            }
+
+        }
+    );
+
+}
+
+
+
+/*
+ * YEAR
+ */
+
+if (currentYear) {
+
+    currentYear.textContent =
+        String(
+            new Date().getFullYear()
+        );
+
+}
+
+
+
+/*
+ * JALQABI
+ */
+
+loadArticles();
+
+</script>
+
+
+
+<script
+    src="main.js"
+    defer
+></script>
+
+
+</body>
+
+</html>

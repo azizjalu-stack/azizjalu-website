@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="om">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Maxxansa | Aziz Jalu</title>
+
+    <meta
+        name="description"
+        content="Maxxansa Aziz Jalu dubbisi."
+    >
+
+    <link rel="stylesheet" href="design.css">
+
+    <style>
+        .single-article {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px 70px;
+        }
+
+        .article-box {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-category {
+            display: inline-block;
+            margin-bottom: 12px;
+            font-weight: bold;
+            color: #e00000;
+        }
+
+        .article-title {
+            font-size: clamp(30px, 6vw, 52px);
+            line-height: 1.2;
+            margin: 0 0 18px;
+        }
+
+        .article-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 28px;
+        }
+
+        .article-date {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .article-text {
+            font-size: 18px;
+            line-height: 2;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 13px 22px;
+            border-radius: 10px;
+            background: #e00000;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .status-message {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 18px;
+        }
+
+        body.dark .article-box {
+            background: #181818;
+        }
+
+        body.dark .article-description,
+        body.dark .article-date {
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <div class="container header-inner">
+
+        <a href="aziz.html" class="logo">
+            Aziz <span>Jalu</span>
+        </a>
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Menu bani"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+        <nav class="main-nav" id="mainNav">
+
+            <a href="aziz.html">
+                Mana
+            </a>
+
+            <a href="articles.html">
+                Maxxansa
+            </a>
+
+            <a href="aziz.html#barnoota">
+                Barnoota
+            </a>
+
+            <a href="aziz.html#waaee">
+                Waa'ee Keenya
+            </a>
+
+            <a href="aziz.html#qunnamtii">
+                Nu Qunnami
+            </a>
+
+            <a href="editor.html">
+                Qopheessi
+            </a>
+
+        </nav>
+
+        <button
+            class="theme-button"
+            id="themeButton"
+            type="button"
+            aria-label="Bifa website jijjiiri"
+        >
+            ◐
+        </button>
+
+    </div>
+
+</header>
+
+
+<main>
+
+<section class="hero">
+
+    <div class="container hero-content">
+
+        <p class="hero-label">
+            AZIZ JALU
+        </p>
+
+        <h1>
+            Maxxansa
+        </h1>
+
+        <p class="hero-text">
+            Barreeffama guutuu dubbisi.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section>
+
+    <div class="single-article">
+
+        <div
+            id="loadingMessage"
+            class="status-message"
+        >
+            Maxxansa fe'aa jira...
+        </div>
+
+
+        <article
+            id="articleBox"
+            class="article-box"
+            style="display:none;"
+        >
+
+            <span
+                id="articleCategory"
+                class="article-category"
+            ></span>
+
+
+            <h1
+                id="articleTitle"
+                class="article-title"
+            ></h1>
+
+
+            <p
+                id="articleDescription"
+                class="article-description"
+            ></p>
+
+
+            <p
+                id="articleDate"
+                class="article-date"
+            ></p>
+
+
+            <div
+                id="articleText"
+                class="article-text"
+            ></div>
+
+
+            <a
+                href="articles.html"
+                class="back-button"
+            >
+                ← Gara Maxxansaatti Deebi'i
+            </a>
+
+        </article>
+
+
+        <div
+            id="errorMessage"
+            class="status-message"
+            style="display:none;"
+        >
+
+            <h2>
+                Maxxansi hin argamne
+            </h2>
+
+            <p>
+                Maxxansa barbaadde argachuu hin dandeenye.
+            </p>
+
+            <a
+                href="articles.html"
+                class="back-button"
+            >
+                ← Gara Maxxansaatti Deebi'i
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer class="site-footer">
+
+    <div class="container footer-content">
+
+        <div>
+
+            <a
+                href="aziz.html"
+                class="logo footer-logo"
+            >
+                Aziz <span>Jalu</span>
+            </a>
+
+            <p>
+                Beekumsa, barnoota fi odeeffannoo.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="aziz.html">
+                Mana
+            </a>
+
+            <a href="articles.html">
+                Maxxansa
+            </a>
+
+            <a href="editor.html">
+                Qopheessi
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            ©
+            <span id="currentYear"></span>
+            Aziz Jalu.
+            Mirgi hundi eegamaadha.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+"use strict";
+
+
+const SUPABASE_URL =
+    "https://eencoolaxscedvnsezlm.supabase.co";
+
+
+const SUPABASE_KEY =
+    "sb_publishable_BgeLKnjMqJxVfRY-JWhxvg_OjNnUKl2";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+
+const loadingMessage =
+    document.getElementById(
+        "loadingMessage"
+    );
+
+
+const articleBox =
+    document.getElementById(
+        "articleBox"
+    );
+
+
+const errorMessage =
+    document.getElementById(
+        "errorMessage"
+    );
+
+
+const articleCategory =
+    document.getElementById(
+        "articleCategory"
+    );
+
+
+const articleTitle =
+    document.getElementById(
+        "articleTitle"
+    );
+
+
+const articleDescription =
+    document.getElementById(
+        "articleDescription"
+    );
+
+
+const articleDate =
+    document.getElementById(
+        "articleDate"
+    );
+
+
+const articleText =
+    document.getElementById(
+        "articleText"
+    );
+
+
+/*
+ * ID URL irraa fudhanna.
+ *
+ * Fakkeenya:
+ * article.html?id=1
+ */
+
+const urlParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+let articleId =
+    urlParams.get("id");
+
+
+/*
+ * Yoo URL keessatti ID jiraate,
+ * sessionStorage keessattis ol kaa'ama.
+ */
+if (articleId) {
+
+    sessionStorage.setItem(
+        "selectedArticleId",
+        String(articleId)
+    );
+
+} else {
+
+    /*
+     * Yoo Acode Preview URL irraa
+     * ?id balleesse, ID duraan kaa'ame fayyadamna.
+     */
+    articleId =
+        sessionStorage.getItem(
+            "selectedArticleId"
+        );
+}
+
+
+/*
+ * Maxxansa tokko fe'uu
+ */
+async function loadArticle() {
+
+    if (!articleId) {
+
+        showError();
+
+        return;
+    }
+
+
+    if (loadingMessage) {
+
+        loadingMessage.textContent =
+            "Maxxansa fe'aa jira...";
+    }
+
+
+    /*
+     * ID'n bigint waan ta'eef
+     * lakkoofsaatti jijjiirra.
+     */
+    const numericId =
+        Number(articleId);
+
+
+    if (!Number.isFinite(numericId)) {
+
+        console.error(
+            "Article ID sirrii miti:",
+            articleId
+        );
+
+        showError();
+
+        return;
+    }
+
+
+    const result =
+        await supabaseClient
+            .from("articles")
+            .select(
+                "id,title,category,description,content,created_at"
+            )
+            .eq(
+                "id",
+                numericId
+            )
+            .maybeSingle();
+
+
+    if (result.error) {
+
+        console.error(
+            "Supabase article error:",
+            result.error
+        );
+
+        showError();
+
+        return;
+    }
+
+
+    const article =
+        result.data;
+
+
+    if (!article) {
+
+        console.error(
+            "Article hin argamne. ID:",
+            numericId
+        );
+
+        showError();
+
+        return;
+    }
+
+
+    /*
+     * CATEGORY
+     */
+    if (articleCategory) {
+
+        articleCategory.textContent =
+            article.category ||
+            "Waliigalaa";
+    }
+
+
+    /*
+     * TITLE
+     */
+    if (articleTitle) {
+
+        articleTitle.textContent =
+            article.title ||
+            "Mata-duree hin qabne";
+    }
+
+
+    /*
+     * DESCRIPTION
+     */
+    if (articleDescription) {
+
+        articleDescription.textContent =
+            article.description ||
+            "";
+    }
+
+
+    /*
+     * DATE
+     */
+    if (articleDate) {
+
+        if (article.created_at) {
+
+            const date =
+                new Date(
+                    article.created_at
+                );
+
+            articleDate.textContent =
+                date.toLocaleDateString(
+                    "om-ET",
+                    {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric"
+                    }
+                );
+
+        } else {
+
+            articleDate.textContent =
+                "";
+        }
+    }
+
+
+    /*
+     * CONTENT
+     *
+     * white-space: pre-wrap
+     * waan ta'eef sararawwan
+     * article keessatti jiran ni eega.
+     */
+    if (articleText) {
+
+        articleText.textContent =
+            article.content ||
+            article.description ||
+            "";
+    }
+
+
+    /*
+     * Loading dhoksi.
+     */
+    if (loadingMessage) {
+
+        loadingMessage.style.display =
+            "none";
+    }
+
+
+    /*
+     * Article agarsiisi.
+     */
+    if (articleBox) {
+
+        articleBox.style.display =
+            "block";
+    }
+}
+
+
+/*
+ * Dogoggora yoo jiraate
+ */
+function showError() {
+
+    if (loadingMessage) {
+
+        loadingMessage.style.display =
+            "none";
+    }
+
+
+    if (articleBox) {
+
+        articleBox.style.display =
+            "none";
+    }
+
+
+    if (errorMessage) {
+
+        errorMessage.style.display =
+            "block";
+    }
+}
+
+
+/*
+ * Footer year
+ */
+const currentYear =
+    document.getElementById(
+        "currentYear"
+    );
+
+
+if (currentYear) {
+
+    currentYear.textContent =
+        String(
+            new Date().getFullYear()
+        );
+}
+
+
+/*
+ * Jalqabi
+ */
+loadArticle();
+
+</script>
+
+
+<script
+    src="main.js"
+    defer
+></script>
+
+</body>
+</html>
