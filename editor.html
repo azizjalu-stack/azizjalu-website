@@ -1,0 +1,2513 @@
+<!DOCTYPE html>
+<html lang="om">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | Aziz Jalu</title>
+
+    <meta
+        name="description"
+        content="Aziz Jalu Dashboard - Maxxansa qopheessi, gulaali fi bulchi."
+    >
+
+    <link
+        rel="stylesheet"
+        href="design.css"
+    >
+
+    <style>
+
+        /* =========================
+           DASHBOARD
+        ========================= */
+
+        .dashboard-box {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .dashboard-card {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,.05);
+        }
+
+        .dashboard-menu {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .dashboard-menu button,
+        .dashboard-menu a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 55px;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            background: #f7f7f7;
+            color: #111;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .dashboard-menu button:hover,
+        .dashboard-menu a:hover {
+            transform: translateY(-1px);
+        }
+
+        .new-button {
+            background: #111 !important;
+            color: #fff !important;
+            border-color: #111 !important;
+        }
+
+        .logout-button {
+            background: #e00000 !important;
+            color: #fff !important;
+            border-color: #e00000 !important;
+        }
+
+
+        /* =========================
+           LOGIN
+        ========================= */
+
+        .login-card {
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .editor-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .editor-actions button {
+            min-height: 45px;
+        }
+
+
+        /* =========================
+           ARTICLES
+        ========================= */
+
+        .my-articles {
+            margin-top: 25px;
+        }
+
+        .my-article {
+            border: 1px solid #ddd;
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 15px;
+            background: #fff;
+        }
+
+        .my-article h3 {
+            margin: 8px 0;
+        }
+
+        .my-article-category {
+            color: #e00000;
+            font-weight: bold;
+        }
+
+        .my-article-date {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .article-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .edit-button,
+        .delete-button,
+        .view-button {
+            border: 0;
+            border-radius: 9px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .edit-button {
+            background: #eee;
+            color: #111;
+        }
+
+        .view-button {
+            background: #222;
+            color: #fff;
+        }
+
+        .delete-button {
+            background: #e00000;
+            color: #fff;
+        }
+
+
+        /* =========================
+           CATEGORIES
+        ========================= */
+
+        .category-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .category-filter {
+            border: 1px solid #ddd;
+            background: #f7f7f7;
+            padding: 9px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .category-filter.active {
+            background: #111;
+            color: #fff;
+        }
+
+
+        /* =========================
+           DARK MODE
+        ========================= */
+
+        body.dark .dashboard-card,
+        body.dark .my-article {
+            background: #181818;
+            border-color: #333;
+        }
+
+        body.dark .dashboard-menu button,
+        body.dark .dashboard-menu a,
+        body.dark .category-filter {
+            background: #222;
+            color: #fff;
+            border-color: #444;
+        }
+
+        body.dark .edit-button {
+            background: #333;
+            color: #fff;
+        }
+
+        body.dark .my-article-date {
+            color: #aaa;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .dashboard-card {
+                padding: 18px;
+                border-radius: 14px;
+            }
+
+            .dashboard-menu {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .dashboard-menu button,
+            .dashboard-menu a {
+                font-size: 14px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="site-header">
+
+    <div class="container header-inner">
+
+        <a
+            href="aziz.html"
+            class="logo"
+        >
+            Aziz <span>Jalu</span>
+        </a>
+
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Menu bani"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+
+        <nav
+            class="main-nav"
+            id="mainNav"
+        >
+
+            <a href="aziz.html">
+                🏠 Mana
+            </a>
+
+            <a href="editor.html">
+                📊 Dashboard
+            </a>
+
+            <a href="articles.html">
+                📖 Maxxansa
+            </a>
+
+            <a href="reset-password.html">
+                🔑 Password
+            </a>
+
+        </nav>
+
+
+        <button
+            class="theme-button"
+            id="themeButton"
+            type="button"
+            aria-label="Bifa website jijjiiri"
+        >
+            ◐
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="container hero-content">
+
+        <p class="hero-label">
+            AZIZ JALU
+        </p>
+
+        <h1>
+            <span>Dashboard</span>
+        </h1>
+
+        <p class="hero-text">
+            Maxxansa kee bakka tokko irraa
+            qopheessi, gulaali fi bulchi.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<section class="contact-section">
+
+    <div class="container dashboard-box">
+
+
+        <!-- =========================
+             LOGIN
+        ========================= -->
+
+        <div
+            id="loginBox"
+            class="dashboard-card login-card"
+        >
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    AZIZ JALU
+                </p>
+
+                <h2>
+                    🔐 Dashboard Seeni
+                </h2>
+
+                <p>
+                    Maxxansa kee bulchuuf
+                    email fi password kee galchi.
+                </p>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="loginEmail">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Email kee"
+                    autocomplete="email"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="loginPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Password kee"
+                    autocomplete="current-password"
+                >
+
+            </div>
+
+
+            <button
+                type="button"
+                id="loginButton"
+                class="button primary-button"
+            >
+                🔐 Seeni
+            </button>
+
+
+            <p style="margin-top:15px;">
+
+                <a
+                    href="#"
+                    id="forgotPassword"
+                >
+                    🔑 Password irraanfadhe
+                </a>
+
+            </p>
+
+
+            <p id="loginMessage"></p>
+
+        </div>
+
+
+
+        <!-- =========================
+             DASHBOARD
+        ========================= -->
+
+        <div
+            id="editorArea"
+            style="display:none;"
+        >
+
+
+            <div
+                id="dashboard"
+                class="dashboard-card"
+            >
+
+                <div class="section-heading">
+
+                    <p class="section-label">
+                        AZIZ JALU
+                    </p>
+
+                    <h2>
+                        📊 Dashboard
+                    </h2>
+
+                    <p id="welcomeMessage">
+                        Baga nagaan dhuftan.
+                    </p>
+
+                </div>
+
+
+                <div class="dashboard-menu">
+
+                    <button
+                        type="button"
+                        id="dashboardNewButton"
+                        class="new-button"
+                    >
+                        ➕ Maxxansa Haaraa
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="dashboardMyButton"
+                    >
+                        📝 Maxxansa Koo
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="dashboardCategoryButton"
+                    >
+                        📚 Category
+                    </button>
+
+
+                    <a href="articles.html">
+                        📖 Maxxansa Ilaali
+                    </a>
+
+
+                    <a href="reset-password.html">
+                        🔑 Password Jijjiiri
+                    </a>
+
+
+                    <button
+                        type="button"
+                        id="logoutButton"
+                        class="logout-button"
+                    >
+                        🚪 Logout
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 CATEGORY
+            ========================= -->
+
+            <div
+                id="categories"
+                class="dashboard-card"
+            >
+
+                <div class="section-heading">
+
+                    <p class="section-label">
+                        CATEGORY
+                    </p>
+
+                    <h2>
+                        📚 Ramaddii
+                    </h2>
+
+                    <p>
+                        Maxxansa kee ramaddii isaatiin ilaali.
+                    </p>
+
+                </div>
+
+
+                <div class="category-list">
+
+                    <button
+                        type="button"
+                        class="category-filter active"
+                        data-category="all"
+                    >
+                        Hunda
+                    </button>
+
+                    <button
+                        type="button"
+                        class="category-filter"
+                        data-category="Barnoota"
+                    >
+                        Barnoota
+                    </button>
+
+                    <button
+                        type="button"
+                        class="category-filter"
+                        data-category="Herrega"
+                    >
+                        Herrega
+                    </button>
+
+                    <button
+                        type="button"
+                        class="category-filter"
+                        data-category="Saayinsii"
+                    >
+                        Saayinsii
+                    </button>
+
+                    <button
+                        type="button"
+                        class="category-filter"
+                        data-category="Hawaasummaa"
+                    >
+                        Hawaasummaa
+                    </button>
+
+                    <button
+                        type="button"
+                        class="category-filter"
+                        data-category="Afaan"
+                    >
+                        Afaan
+                    </button>
+
+                    <button
+                        type="button"
+                        class="category-filter"
+                        data-category="Teknolojii"
+                    >
+                        Teknolojii
+                    </button>
+
+                    <button
+                        type="button"
+                        class="category-filter"
+                        data-category="Beekumsa"
+                    >
+                        Beekumsa
+                    </button>
+
+                    <button
+                        type="button"
+                        class="category-filter"
+                        data-category="Bashannana"
+                    >
+                        Bashannana
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 MY ARTICLES
+            ========================= -->
+
+            <div
+                id="myArticles"
+                class="dashboard-card my-articles"
+            >
+
+                <div class="section-heading">
+
+                    <p class="section-label">
+                        MAXXANSA KOO
+                    </p>
+
+                    <h2>
+                        📝 Maxxansa Koo
+                    </h2>
+
+                    <p>
+                        As irraa maxxansa kee
+                        gulaali, ilaali ykn haqii.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="newArticleButton"
+                    class="new-button"
+                >
+                    ➕ Maxxansa Haaraa
+                </button>
+
+
+                <div id="myArticlesList">
+
+                    <p>
+                        Maxxansa fe'aa jira...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 ARTICLE FORM
+            ========================= -->
+
+            <form
+                id="articleForm"
+                class="dashboard-card"
+                style="display:none;"
+            >
+
+                <h2 id="editorTitle">
+                    ➕ Maxxansa Haaraa
+                </h2>
+
+
+                <input
+                    type="hidden"
+                    id="editingArticleId"
+                >
+
+
+                <div class="form-group">
+
+                    <label for="articleTitle">
+                        Mata-duree
+                    </label>
+
+                    <input
+                        type="text"
+                        id="articleTitle"
+                        name="title"
+                        placeholder="Mata-duree barreessi..."
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="articleCategory">
+                        Ramaddii
+                    </label>
+
+                    <select
+                        id="articleCategory"
+                        name="category"
+                        required
+                    >
+
+                        <option value="">
+                            Ramaddii filadhu
+                        </option>
+
+                        <option value="Barnoota">
+                            Barnoota
+                        </option>
+
+                        <option value="Herrega">
+                            Herrega
+                        </option>
+
+                        <option value="Saayinsii">
+                            Saayinsii
+                        </option>
+
+                        <option value="Hawaasummaa">
+                            Hawaasummaa
+                        </option>
+
+                        <option value="Afaan">
+                            Afaan
+                        </option>
+
+                        <option value="Teknolojii">
+                            Teknolojii
+                        </option>
+
+                        <option value="Beekumsa">
+                            Beekumsa
+                        </option>
+
+                        <option value="Bashannana">
+                            Bashannana
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="articleDescription">
+                        Ibsa Gabaabaa
+                    </label>
+
+                    <textarea
+                        id="articleDescription"
+                        name="description"
+                        rows="4"
+                        placeholder="Ibsa gabaabaa barreessi..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="articleContent">
+                        Qabiyyee Guutuu
+                    </label>
+
+                    <textarea
+                        id="articleContent"
+                        name="content"
+                        rows="14"
+                        placeholder="Barreeffama kee guutuu asitti barreessi..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="editor-actions">
+
+                    <button
+                        type="button"
+                        id="previewButton"
+                        class="button secondary-button"
+                    >
+                        👀 Preview
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        id="saveButton"
+                        class="button primary-button"
+                    >
+                        ➕ Maxxansi
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="cancelEditButton"
+                        class="button secondary-button"
+                        style="display:none;"
+                    >
+                        ✖ Haqi
+                    </button>
+
+                </div>
+
+            </form>
+
+
+
+            <!-- =========================
+                 PREVIEW
+            ========================= -->
+
+            <div
+                id="previewArea"
+                class="dashboard-card"
+                hidden
+            >
+
+                <div class="section-heading">
+
+                    <p class="section-label">
+                        PREVIEW
+                    </p>
+
+                    <h2 id="previewTitle">
+                        -
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    <strong>Ramaddii:</strong>
+                    <span id="previewCategory">
+                        -
+                    </span>
+                </p>
+
+
+                <p>
+                    <strong>Ibsa:</strong>
+                    <span id="previewDescription">
+                        -
+                    </span>
+                </p>
+
+
+                <p>
+                    <strong>Qabiyyee:</strong>
+                </p>
+
+
+                <div
+                    id="previewContent"
+                    style="white-space:pre-wrap; line-height:1.8;"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="site-footer">
+
+    <div class="container footer-content">
+
+        <div>
+
+            <a
+                href="aziz.html"
+                class="logo footer-logo"
+            >
+                Aziz <span>Jalu</span>
+            </a>
+
+            <p>
+                Beekumsa, barnoota fi odeeffannoo.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="aziz.html">
+                Mana
+            </a>
+
+            <a href="articles.html">
+                Maxxansa
+            </a>
+
+            <a href="editor.html">
+                Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            ©
+            <span id="currentYear"></span>
+            Aziz Jalu.
+            Mirgi hundi eegamaadha.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================
+     SUPABASE
+========================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+"use strict";
+
+
+/* =========================
+   SUPABASE CONFIGURATION
+========================= */
+
+/*
+ * Configure these values through your deployment environment.
+ *
+ * For static hosting, expose them through a generated config file or
+ * build-time replacement, for example:
+ *
+ * window.APP_CONFIG = {
+ *     SUPABASE_URL: "https://your-project.supabase.co",
+ *     SUPABASE_PUBLISHABLE_KEY: "your-publishable-key"
+ * };
+ *
+ * Never place a Supabase service-role key in browser code.
+ */
+const appConfig =
+    window.APP_CONFIG || {};
+
+const SUPABASE_URL =
+    appConfig.SUPABASE_URL ||
+    window.__SUPABASE_URL__;
+
+const SUPABASE_KEY =
+    appConfig.SUPABASE_PUBLISHABLE_KEY ||
+    window.__SUPABASE_PUBLISHABLE_KEY__;
+
+if (!SUPABASE_URL || !SUPABASE_KEY) {
+
+    throw new Error(
+        "Supabase configuration is missing. " +
+        "Set SUPABASE_URL and SUPABASE_PUBLISHABLE_KEY " +
+        "through the deployment environment."
+    );
+
+}
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+
+/* =========================
+   ROW LEVEL SECURITY
+========================= */
+
+/*
+ * Enable Row Level Security on public.articles in Supabase before
+ * deploying this dashboard. The publishable key is safe to expose only
+ * when RLS protects every table and storage object.
+ *
+ * Example policies for an articles table with an author_id UUID column:
+ *
+ * alter table public.articles enable row level security;
+ *
+ * create policy "Anyone can read articles"
+ * on public.articles
+ * for select
+ * to anon, authenticated
+ * using (true);
+ *
+ * create policy "Users can create their own articles"
+ * on public.articles
+ * for insert
+ * to authenticated
+ * with check (auth.uid() = author_id);
+ *
+ * create policy "Users can update their own articles"
+ * on public.articles
+ * for update
+ * to authenticated
+ * using (auth.uid() = author_id)
+ * with check (auth.uid() = author_id);
+ *
+ * create policy "Users can delete their own articles"
+ * on public.articles
+ * for delete
+ * to authenticated
+ * using (auth.uid() = author_id);
+ *
+ * Adjust the public read policy if articles should not be public.
+ * Verify the policies in Supabase's Table Editor or SQL Editor, and
+ * test reads, inserts, updates, and deletes as both anonymous and
+ * authenticated users. Do not rely on client-side author_id filters
+ * alone; RLS must enforce ownership on the database.
+ */
+
+
+/* =========================
+   TYPE
+========================= */
+
+/**
+ * @typedef {Object} Article
+ * @property {number} id
+ * @property {string} title
+ * @property {string|null} category
+ * @property {string|null} description
+ * @property {string|null} content
+ * @property {string|null} created_at
+ * @property {string|null} author_id
+ */
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const loginBox =
+    document.getElementById("loginBox");
+
+const loginButton =
+    document.getElementById("loginButton");
+
+const loginMessage =
+    document.getElementById("loginMessage");
+
+const forgotPassword =
+    document.getElementById("forgotPassword");
+
+const editorArea =
+    document.getElementById("editorArea");
+
+const welcomeMessage =
+    document.getElementById("welcomeMessage");
+
+const logoutButton =
+    document.getElementById("logoutButton");
+
+const dashboardNewButton =
+    document.getElementById("dashboardNewButton");
+
+const dashboardMyButton =
+    document.getElementById("dashboardMyButton");
+
+const dashboardCategoryButton =
+    document.getElementById(
+        "dashboardCategoryButton"
+    );
+
+const articleForm =
+    document.getElementById("articleForm");
+
+const editorTitle =
+    document.getElementById("editorTitle");
+
+const editingArticleId =
+    document.getElementById("editingArticleId");
+
+const articleTitle =
+    document.getElementById("articleTitle");
+
+const articleCategory =
+    document.getElementById("articleCategory");
+
+const articleDescription =
+    document.getElementById("articleDescription");
+
+const articleContent =
+    document.getElementById("articleContent");
+
+const saveButton =
+    document.getElementById("saveButton");
+
+const cancelEditButton =
+    document.getElementById(
+        "cancelEditButton"
+    );
+
+const previewButton =
+    document.getElementById(
+        "previewButton"
+    );
+
+const previewArea =
+    document.getElementById(
+        "previewArea"
+    );
+
+const previewTitle =
+    document.getElementById(
+        "previewTitle"
+    );
+
+const previewCategory =
+    document.getElementById(
+        "previewCategory"
+    );
+
+const previewDescription =
+    document.getElementById(
+        "previewDescription"
+    );
+
+const previewContent =
+    document.getElementById(
+        "previewContent"
+    );
+
+const myArticlesList =
+    document.getElementById(
+        "myArticlesList"
+    );
+
+const newArticleButton =
+    document.getElementById(
+        "newArticleButton"
+    );
+
+const myArticles =
+    document.getElementById(
+        "myArticles"
+    );
+
+const categories =
+    document.getElementById(
+        "categories"
+    );
+
+
+/* =========================
+   LOGIN STATE
+========================= */
+
+async function checkLogin() {
+
+    const result =
+        await supabaseClient.auth.getUser();
+
+
+    if (result.error) {
+
+        console.error(result.error);
+
+        showLogin();
+
+        return;
+
+    }
+
+
+    const user =
+        result.data.user;
+
+
+    if (user) {
+
+        showEditor(user);
+
+    } else {
+
+        showLogin();
+
+    }
+
+}
+
+
+/**
+ * @param {import("@supabase/supabase-js").User} user
+ */
+function showEditor(user) {
+
+    loginBox.style.display =
+        "none";
+
+    editorArea.style.display =
+        "block";
+
+
+    if (welcomeMessage && user) {
+
+        welcomeMessage.textContent =
+            "Baga nagaan dhuftan. " +
+            (user.email || "");
+
+    }
+
+
+    loadMyArticles();
+
+}
+
+
+function showLogin() {
+
+    loginBox.style.display =
+        "block";
+
+    editorArea.style.display =
+        "none";
+
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+if (loginButton) {
+
+    loginButton.addEventListener(
+        "click",
+        async function () {
+
+            const email =
+                document
+                    .getElementById(
+                        "loginEmail"
+                    )
+                    .value
+                    .trim();
+
+
+            const password =
+                document
+                    .getElementById(
+                        "loginPassword"
+                    )
+                    .value;
+
+
+            if (!email || !password) {
+
+                loginMessage.textContent =
+                    "Mee email fi password guuti.";
+
+                return;
+
+            }
+
+
+            loginMessage.textContent =
+                "Seenaa jira...";
+
+
+            const result =
+                await supabaseClient.auth
+                    .signInWithPassword({
+
+                        email: email,
+
+                        password: password
+
+                    });
+
+
+            if (result.error) {
+
+                console.error(
+                    result.error
+                );
+
+                loginMessage.textContent =
+                    "Email ykn password sirrii miti.";
+
+                return;
+
+            }
+
+
+            loginMessage.textContent =
+                "✅ Milkaa'eera.";
+
+
+            showEditor(
+                result.data.user
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================
+   PASSWORD RESET
+========================= */
+
+if (forgotPassword) {
+
+    forgotPassword.addEventListener(
+        "click",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            const email =
+                document
+                    .getElementById(
+                        "loginEmail"
+                    )
+                    .value
+                    .trim();
+
+
+            if (!email) {
+
+                loginMessage.textContent =
+                    "Jalqaba email kee galchi.";
+
+                return;
+
+            }
+
+
+            loginMessage.textContent =
+                "Linkii password ergamaa jira...";
+
+
+            const result =
+                await supabaseClient.auth
+                    .resetPasswordForEmail(
+                        email,
+                        {
+                            redirectTo:
+                                "https://azizjalu-stack.github.io/azizjalu-website/reset-password.html"
+                        }
+                    );
+
+
+            if (result.error) {
+
+                console.error(
+                    result.error
+                );
+
+                loginMessage.textContent =
+                    "Linkii password erguun hin milkoofne.";
+
+                return;
+
+            }
+
+
+            loginMessage.textContent =
+                "✅ Linkiin password email keetti ergamaera.";
+
+        }
+    );
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+if (logoutButton) {
+
+    logoutButton.addEventListener(
+        "click",
+        async function () {
+
+            const result =
+                await supabaseClient.auth
+                    .signOut();
+
+
+            if (result.error) {
+
+                alert(
+                    "Logout gochuun hin milkoofne."
+                );
+
+                console.error(
+                    result.error
+                );
+
+                return;
+
+            }
+
+
+            showLogin();
+
+            alert(
+                "✅ Baateetta."
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================
+   LOAD MY ARTICLES
+========================= */
+
+/**
+ * @returns {Promise<void>}
+ */
+async function loadMyArticles() {
+
+    if (!myArticlesList) {
+        return;
+    }
+
+
+    myArticlesList.innerHTML =
+        "<p>Maxxansa fe'aa jira...</p>";
+
+
+    const userResult =
+        await supabaseClient.auth.getUser();
+
+
+    if (userResult.error) {
+
+        console.error(
+            userResult.error
+        );
+
+        showLogin();
+
+        return;
+
+    }
+
+
+    const user =
+        userResult.data.user;
+
+
+    if (!user) {
+
+        showLogin();
+
+        return;
+
+    }
+
+
+    const result =
+        await supabaseClient
+            .from("articles")
+            .select(
+                "id,title,category,description,content,created_at,author_id"
+            )
+            .eq(
+                "author_id",
+                user.id
+            )
+            .order(
+                "created_at",
+                {
+                    ascending: false
+                }
+            );
+
+
+    if (result.error) {
+
+        console.error(
+            result.error
+        );
+
+        myArticlesList.innerHTML =
+            "<p>Maxxansa fe'uu irratti rakkoon uumame.</p>";
+
+        return;
+
+    }
+
+
+    /** @type {Article[]} */
+    const articles =
+        Array.isArray(result.data)
+            ? result.data
+            : [];
+
+
+    renderArticles(
+        articles,
+        "all"
+    );
+
+}
+
+
+/* =========================
+   RENDER ARTICLES
+========================= */
+
+/**
+ * @param {Article[]} articles
+ * @param {string} selectedCategory
+ */
+function renderArticles(
+    articles,
+    selectedCategory
+) {
+
+    if (!myArticlesList) {
+        return;
+    }
+
+
+    myArticlesList.innerHTML =
+        "";
+
+
+    let visibleCount = 0;
+
+
+    for (
+        let i = 0;
+        i < articles.length;
+        i++
+    ) {
+
+        const item =
+            articles[i];
+
+
+        const itemCategory =
+            item.category ||
+            "Waliigalaa";
+
+
+        if (
+            selectedCategory !== "all" &&
+            itemCategory !== selectedCategory
+        ) {
+
+            continue;
+
+        }
+
+
+        visibleCount++;
+
+
+        const box =
+            document.createElement(
+                "div"
+            );
+
+
+        box.className =
+            "my-article";
+
+
+        const category =
+            document.createElement(
+                "div"
+            );
+
+
+        category.className =
+            "my-article-category";
+
+
+        category.textContent =
+            itemCategory;
+
+
+        const title =
+            document.createElement(
+                "h3"
+            );
+
+
+        title.textContent =
+            item.title ||
+            "Mata-duree hin qabne";
+
+
+        const description =
+            document.createElement(
+                "p"
+            );
+
+
+        description.textContent =
+            item.description ||
+            "";
+
+
+        const date =
+            document.createElement(
+                "div"
+            );
+
+
+        date.className =
+            "my-article-date";
+
+
+        if (item.created_at) {
+
+            const d =
+                new Date(
+                    item.created_at
+                );
+
+            date.textContent =
+                "📅 " +
+                d.toLocaleDateString();
+
+        }
+
+
+        const actions =
+            document.createElement(
+                "div"
+            );
+
+
+        actions.className =
+            "article-actions";
+
+
+        const viewButton =
+            document.createElement(
+                "button"
+            );
+
+
+        viewButton.type =
+            "button";
+
+        viewButton.className =
+            "view-button";
+
+        viewButton.textContent =
+            "👀 Ilaali";
+
+
+        viewButton.addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "article.html?id=" +
+                    encodeURIComponent(
+                        String(item.id)
+                    );
+
+            }
+        );
+
+
+        const editButton =
+            document.createElement(
+                "button"
+            );
+
+
+        editButton.type =
+            "button";
+
+        editButton.className =
+            "edit-button";
+
+        editButton.textContent =
+            "✏️ Gulaali";
+
+
+        editButton.addEventListener(
+            "click",
+            function () {
+
+                editArticle(item);
+
+            }
+        );
+
+
+        const deleteButton =
+            document.createElement(
+                "button"
+            );
+
+
+        deleteButton.type =
+            "button";
+
+        deleteButton.className =
+            "delete-button";
+
+        deleteButton.textContent =
+            "🗑️ Haqi";
+
+
+        deleteButton.addEventListener(
+            "click",
+            function () {
+
+                deleteArticle(
+                    Number(item.id)
+                );
+
+            }
+        );
+
+
+        actions.appendChild(
+            viewButton
+        );
+
+        actions.appendChild(
+            editButton
+        );
+
+        actions.appendChild(
+            deleteButton
+        );
+
+
+        box.appendChild(
+            category
+        );
+
+        box.appendChild(
+            title
+        );
+
+        box.appendChild(
+            description
+        );
+
+        box.appendChild(
+            date
+        );
+
+        box.appendChild(
+            actions
+        );
+
+
+        myArticlesList.appendChild(
+            box
+        );
+
+    }
+
+
+    if (visibleCount === 0) {
+
+        myArticlesList.innerHTML =
+            "<p>Ramaddii kana keessatti maxxansi hin jiru.</p>";
+
+    }
+
+}
+
+
+/* =========================
+   GET ARTICLES FOR FILTER
+========================= */
+
+/**
+ * @returns {Promise<Article[]>}
+ */
+async function getMyArticles() {
+
+    const userResult =
+        await supabaseClient.auth.getUser();
+
+
+    if (
+        userResult.error ||
+        !userResult.data.user
+    ) {
+
+        return [];
+
+    }
+
+
+    const user =
+        userResult.data.user;
+
+
+    const result =
+        await supabaseClient
+            .from("articles")
+            .select(
+                "id,title,category,description,content,created_at,author_id"
+            )
+            .eq(
+                "author_id",
+                user.id
+            )
+            .order(
+                "created_at",
+                {
+                    ascending: false
+                }
+            );
+
+
+    if (result.error) {
+
+        console.error(
+            result.error
+        );
+
+        return [];
+
+    }
+
+
+    /** @type {Article[]} */
+    const articles =
+        Array.isArray(result.data)
+            ? result.data
+            : [];
+
+
+    return articles;
+
+}
+
+
+/* =========================
+   NEW ARTICLE
+========================= */
+
+function startNewArticle() {
+
+    if (!articleForm) {
+        return;
+    }
+
+
+    articleForm.reset();
+
+
+    editingArticleId.value =
+        "";
+
+
+    editorTitle.textContent =
+        "➕ Maxxansa Haaraa";
+
+
+    saveButton.textContent =
+        "➕ Maxxansi";
+
+
+    cancelEditButton.style.display =
+        "none";
+
+
+    previewArea.hidden =
+        true;
+
+
+    articleForm.style.display =
+        "block";
+
+
+    articleForm.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+if (newArticleButton) {
+
+    newArticleButton.addEventListener(
+        "click",
+        startNewArticle
+    );
+
+}
+
+
+if (dashboardNewButton) {
+
+    dashboardNewButton.addEventListener(
+        "click",
+        startNewArticle
+    );
+
+}
+
+
+/* =========================
+   MY ARTICLES BUTTON
+========================= */
+
+if (dashboardMyButton) {
+
+    dashboardMyButton.addEventListener(
+        "click",
+        function () {
+
+            myArticles.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+}
+
+
+/* =========================
+   CATEGORY BUTTON
+========================= */
+
+if (dashboardCategoryButton) {
+
+    dashboardCategoryButton.addEventListener(
+        "click",
+        function () {
+
+            categories.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+}
+
+
+/* =========================
+   EDIT
+========================= */
+
+/**
+ * @param {Article} article
+ */
+function editArticle(article) {
+
+    editingArticleId.value =
+        String(article.id);
+
+
+    articleTitle.value =
+        article.title || "";
+
+
+    articleCategory.value =
+        article.category || "";
+
+
+    articleDescription.value =
+        article.description || "";
+
+
+    articleContent.value =
+        article.content || "";
+
+
+    editorTitle.textContent =
+        "✏️ Maxxansa Gulaali";
+
+
+    saveButton.textContent =
+        "🔄 Update";
+
+
+    cancelEditButton.style.display =
+        "inline-block";
+
+
+    previewArea.hidden =
+        true;
+
+
+    articleForm.style.display =
+        "block";
+
+
+    articleForm.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================
+   CANCEL EDIT
+========================= */
+
+if (cancelEditButton) {
+
+    cancelEditButton.addEventListener(
+        "click",
+        function () {
+
+            startNewArticle();
+
+        }
+    );
+
+}
+
+
+/* =========================
+   PREVIEW
+========================= */
+
+if (previewButton) {
+
+    previewButton.addEventListener(
+        "click",
+        function () {
+
+            const title =
+                articleTitle.value.trim();
+
+
+            const category =
+                articleCategory.value;
+
+
+            const description =
+                articleDescription.value.trim();
+
+
+            const content =
+                articleContent.value.trim();
+
+
+            if (
+                !title ||
+                !category ||
+                !description ||
+                !content
+            ) {
+
+                alert(
+                    "Mee odeeffannoo hunda guuti."
+                );
+
+                return;
+
+            }
+
+
+            previewTitle.textContent =
+                title;
+
+
+            previewCategory.textContent =
+                category;
+
+
+            previewDescription.textContent =
+                description;
+
+
+            previewContent.textContent =
+                content;
+
+
+            previewArea.hidden =
+                false;
+
+
+            previewArea.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+}
+
+
+/* =========================
+   SAVE / UPDATE
+========================= */
+
+if (articleForm) {
+
+    articleForm.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            const title =
+                articleTitle.value.trim();
+
+
+            const category =
+                articleCategory.value;
+
+
+            const description =
+                articleDescription.value.trim();
+
+
+            const content =
+                articleContent.value.trim();
+
+
+            if (
+                !title ||
+                !category ||
+                !description ||
+                !content
+            ) {
+
+                alert(
+                    "Mee odeeffannoo hunda guuti."
+                );
+
+                return;
+
+            }
+
+
+            const userResult =
+                await supabaseClient.auth.getUser();
+
+
+            if (
+                userResult.error ||
+                !userResult.data.user
+            ) {
+
+                alert(
+                    "Dura Dashboard seenuu qabda."
+                );
+
+                showLogin();
+
+                return;
+
+            }
+
+
+            const user =
+                userResult.data.user;
+
+
+            const currentId =
+                editingArticleId.value.trim();
+
+
+            /* =========================
+               UPDATE
+            ========================= */
+
+            if (currentId) {
+
+                const updateResult =
+                    await supabaseClient
+                        .from("articles")
+                        .update({
+
+                            title: title,
+
+                            category: category,
+
+                            description: description,
+
+                            content: content
+
+                        })
+                        .eq(
+                            "id",
+                            Number(currentId)
+                        )
+                        .eq(
+                            "author_id",
+                            user.id
+                        );
+
+
+                if (updateResult.error) {
+
+                    console.error(
+                        updateResult.error
+                    );
+
+                    alert(
+                        "🔴 Update gochuun hin milkoofne."
+                    );
+
+                    return;
+
+                }
+
+
+                alert(
+                    "✅ Maxxansi sirriitti haaromfameera!"
+                );
+
+            }
+
+
+            /* =========================
+               NEW ARTICLE
+            ========================= */
+
+            else {
+
+                const insertResult =
+                    await supabaseClient
+                        .from("articles")
+                        .insert({
+
+                            title: title,
+
+                            category: category,
+
+                            description: description,
+
+                            content: content,
+
+                            author_id: user.id
+
+                        });
+
+
+                if (insertResult.error) {
+
+                    console.error(
+                        insertResult.error
+                    );
+
+                    alert(
+                        "🔴 Maxxansuu irratti dogoggorri uumame."
+                    );
+
+                    return;
+
+                }
+
+
+                alert(
+                    "✅ Maxxansi kee milkaa'inaan kuufameera!"
+                );
+
+            }
+
+
+            startNewArticle();
+
+
+            await loadMyArticles();
+
+        }
+    );
+
+}
+
+
+/* =========================
+   DELETE
+========================= */
+
+/**
+ * @param {number} articleId
+ */
+async function deleteArticle(articleId) {
+
+    const confirmed =
+        window.confirm(
+            "Maxxansa kana dhugumaan haquu barbaaddaa?"
+        );
+
+
+    if (!confirmed) {
+        return;
+    }
+
+
+    const userResult =
+        await supabaseClient.auth.getUser();
+
+
+    if (
+        userResult.error ||
+        !userResult.data.user
+    ) {
+
+        alert(
+            "Dura Dashboard seenuu qabda."
+        );
+
+        showLogin();
+
+        return;
+
+    }
+
+
+    const user =
+        userResult.data.user;
+
+
+    const result =
+        await supabaseClient
+            .from("articles")
+            .delete()
+            .eq(
+                "id",
+                Number(articleId)
+            )
+            .eq(
+                "author_id",
+                user.id
+            );
+
+
+    if (result.error) {
+
+        console.error(
+            result.error
+        );
+
+        alert(
+            "🔴 Maxxansa haquun hin milkoofne."
+        );
+
+        return;
+
+    }
+
+
+    alert(
+        "✅ Maxxansi haqameera."
+    );
+
+
+    await loadMyArticles();
+
+}
+
+
+/* =========================
+   CATEGORY FILTER
+========================= */
+
+const categoryButtons =
+    document.querySelectorAll(
+        ".category-filter"
+    );
+
+
+for (
+    let i = 0;
+    i < categoryButtons.length;
+    i++
+) {
+
+    categoryButtons[i].addEventListener(
+        "click",
+        async function () {
+
+            for (
+                let j = 0;
+                j < categoryButtons.length;
+                j++
+            ) {
+
+                categoryButtons[j]
+                    .classList
+                    .remove("active");
+
+            }
+
+
+            this.classList.add(
+                "active"
+            );
+
+
+            const selectedCategory =
+                this.dataset.category ||
+                "all";
+
+
+            const articles =
+                await getMyArticles();
+
+
+            renderArticles(
+                articles,
+                selectedCategory
+            );
+
+
+            myArticles.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+}
+
+
+/* =========================
+   YEAR
+========================= */
+
+const currentYear =
+    document.getElementById(
+        "currentYear"
+    );
+
+
+if (currentYear) {
+
+    currentYear.textContent =
+        String(
+            new Date().getFullYear()
+        );
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+checkLogin();
+
+</script>
+
+
+<script
+    src="main.js"
+    defer
+></script>
+
+
+</body>
+
+</html>
